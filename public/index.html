@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <table >
+
+    <thead>
+      <tr>
+        <th> Usuario </th>
+        <th> Contraseña </th>
+        <th> Mensaje </th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <form id="miFormulario">
+    <input type="text" name="nombre" placeholder="Introduce User" required>
+    <input type="text" name="access_password">
+    <input type="text" name="mensaje" placeholder="ur mensaje" required>
+    
+    <button id="Boton" type="submit">Enviar</button>
+  </form>
+
+  
+
+
+<h1>Mnesajes Recibidos</h1>
+
+    <script id="miFormulario">
+
+
+async function obtenerDatos() {
+    try {
+        const res = await fetch('/api/mensajes');
+        const data = await res.json();
+        console.log(data);
+    } catch (err) {
+        console.error("Error en la petición:", err);
+    }
+}
+
+const boton = document.querySelector('Boton');
+
+boton.addEventListener('click', (event) => {
+    event.preventDefault(); // Evita comportamientos automáticos
+    titulo.textContent = "¡Texto cambiado!";
+    titulo.style.color = "red";
+});
+
+const datos = [{nombre: 'Luis', edad: 25}, {nombre: 'Ana', edad: 30}];
+const titulo = document.querySelector('h1');
+const tablaBody = document.querySelector('');
+
+datos.forEach(item => {
+    const fila = document.createElement('tr');
+    fila.innerHTML = `
+        <td>${item.nombre}</td>
+        <td>${item.edad}</td>
+    `;
+    tablaBody.appendChild(fila);
+});
+
+    </script>
+</body>
+
+</html>
